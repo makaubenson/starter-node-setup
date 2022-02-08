@@ -1,0 +1,81 @@
+extends base
+block content 
+ .blog-area.bg-gray-color
+  span#userIdentifier(style='opacity:0;width:0;height:0')= user._id 
+  span#houseIdentifier(style='opacity:0;width:0;height:0')= house._id 
+  span#houseIdentifierMark(style='opacity:0;width:0;height:0')= house.price 
+  .container
+    .row
+      .col-md-12
+        .blog-content-left(style='background-color: white;')
+          .tab-content
+            #home.tab-pane.active(role='tabpanel')
+              .row
+                .col-md-12.col-sm-6
+                  article.post
+                    figure.post-thumb
+                      a(href=`/img/houses/${house.pictures[0]}` target="_blank")
+                        img(src=`/img/houses/${house.pictures[0]}` alt='House image')
+                    // /.post-thumb
+                    .post-content
+                      .entry-meta
+                        p Booking Payment
+                      // /.entry-header
+                      .entry-meta
+                        h4(style='margin: 0;font-family: Poppins,sans-serif; opacity: .9;font-weight: 600;')= house.houseName
+                        - let location = `${house.locationID.locationName} , ${house.estateId.estateName} `
+                        h4(style='margin: 0; font-family: Poppins,sans-serif; opacity: .9;font-weight: 300;')= location
+                        h3(style='margin: 0; font-family: Poppins,sans-serif; opacity: .9;font-weight: 700;')= house.price
+                        hr
+                        h4(style='margin: 0; font-family: Poppins,sans-serif; opacity: .9;font-weight: 200;')= user.name
+                        h4(style='margin: 0; font-family: Poppins,sans-serif; opacity: .9;font-weight: 200;')= user.email
+                        hr
+                      // /.entry-header
+                      .col-md-6
+                        .profile-btns
+                          h2(style='font-family: Poppins,sans-serif;text-align: center;')
+                            | Select a payment method
+                          ol.purchase-container
+                            li
+                              a#mpesa_pay_btn.btns(href='#') Mpesa
+                            li
+                              a#stripe_pay_btn.btns(href='#') Credit Card
+                            li
+                              a#paypal_pay_btn.btns(href='#')  Paypal
+                          .mpesa-dialogue.hidden.gradient-border
+                            .form-border(style='background-color: white; padding: 2rem')
+                              form#mpesaNumberForm.advance_search_query.booking-form(action='' method='post')
+                                p
+                                  | input Number in international Format
+                                  | (+254) 
+                                  br
+                                  |                                       ie : 254711223344. Dont write the +
+                                label(for='mpesano') Enter your Mpesa Payment Number
+                                input#mpesano.form-controller(type='number ' name='' placeholder='254700000000')
+                                input.button.default-template-gradient.button-radius(type='submit' value='Enter Number')
+                                a(href="#")#mpesaCancel Cancel
+                      .col-md-6
+                        h4(style='font-family: Poppins,sans-serif;')
+                          | Mpesa Details
+                        p
+                          | Your Payment number
+                          - let number = `: ${user.phone}`
+                          strong(style='letter-spacing: 1.1px;')= number
+                        hr
+                        h4(style='font-family: Poppins,sans-serif;')
+                          | Credit Card Details
+                        p
+                          | Payment Gateway
+                          strong(style='letter-spacing: 1.1px;')  : Stripe 
+                        hr
+                        h4(style='font-family: Poppins,sans-serif;')
+                          | Paypal Details
+                        p
+                          | account 
+                          strong(style='letter-spacing: 1.1px;')  : info@example.com 
+                        a.btns.btns--red(href='/')  Cancel Booking     
+                    // /.post-content
+
+
+ script(src='https://js.stripe.com/v3/')
+

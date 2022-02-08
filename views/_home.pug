@@ -1,0 +1,288 @@
+extends base
+
+block content
+ .form-block-content.hover-shadow.default-template-gradient
+  .form-area.form-four
+    .container
+      .row
+        .col-md-12
+          div(style='text-align: center')
+            h3(style="\
+            font-family: sans-serif, 'Poppins';\
+            color: white;\
+            opacity: 0.9;\
+            ")
+              | Find Any House in
+              svg.bi.bi-geo-alt-fill(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='white' viewbox='0 0 16 16')
+                path(d='M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z')
+              |                   MASENO
+          form.advance_search_query(action='/search' method='get')
+            .form-bg.border-radius
+              .form-content
+                .form-group
+                  label Living area
+                  select(required name="locationID")
+                    option(value="") Where do you want to live?
+                    each locationData in allLocation
+                     option(value=`${locationData._id}`)= locationData.locationName
+                // /.form-group
+                .form-group
+                  label Number of Beds
+                  select(name="numberOfBeds")
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                // /.form-group
+                .form-group
+                  label Price
+                  input(type='text' name='price' required placeholder='10000')
+                // /.form-group
+                .form-group
+                  button.button.nevy-button(type='submit')
+                    | Find a House
+                // /.form-group
+              // /.form-content
+            // /.form-bg
+          // /.advance_search_query
+          h4.form-bottom-title
+            span(style='opacity: 0.8; font-weight: 400; color: white') 167 Houses Available For You
+        // /.col-md-12
+      // /.row
+    // /.container
+  // /.form-area
+ .gallery-area.four
+  .container
+    .row
+      .col-md-4.col-sm-4
+        .gallery-left-content
+          h3.holder-title
+            svg.bi.bi-tv-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+              path(d='M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z')
+            |                 Adds
+          h2(style='font-size:60px ; font-family: sans-serif,Poppins;')
+            | Premium 
+            br
+            |                 Houses
+        // /.right-content
+      // /.col-md-4
+      .col-md-8.col-sm-8
+        h1(style='font-family: Poppins,sans-serif; text-align: center')
+          svg#Capa_1(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 0 298.305 298.305' style='enable-background: new 0 0 298.305 298.305; width: 38px' xml:space='preserve')
+            g
+              path(style='fill: #222220' d='M218.731,131.913l-38.492-6.036V58.702c0-15.952-12.978-28.93-28.93-28.93h-0.433\
+              c-15.952,0-28.93,12.978-28.93,28.93v107.881l-39.794-17.055c-7.996-3.427-17.105-2.613-24.367,2.176\
+              c-7.262,4.788-11.597,12.841-11.597,21.539v0.363c0,7.361,3.155,14.389,8.656,19.28l67.103,59.669v28.989\
+              c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-32.356c0-2.142-0.916-4.182-2.516-5.604l-69.619-61.906\
+              c-2.303-2.048-3.624-4.989-3.624-8.071v-0.363c0-3.695,1.77-6.982,4.854-9.017c3.085-2.034,6.804-2.367,10.201-0.911l50.247,21.534\
+              c0.461,0.198,0.944,0.353,1.447,0.456c0.749,0.155,1.505,0.188,2.244,0.115c0.105-0.01,0.207-0.03,0.311-0.044\
+              c0.134-0.019,0.268-0.035,0.401-0.062c0.152-0.029,0.299-0.069,0.447-0.108c0.082-0.021,0.166-0.04,0.247-0.063\
+              c0.163-0.049,0.321-0.107,0.48-0.166c0.067-0.025,0.135-0.047,0.201-0.074c0.153-0.062,0.302-0.133,0.449-0.205\
+              c0.071-0.034,0.143-0.066,0.213-0.103c0.132-0.069,0.259-0.146,0.387-0.223c0.083-0.05,0.167-0.098,0.248-0.151\
+              c0.106-0.07,0.208-0.146,0.31-0.221c0.096-0.07,0.193-0.139,0.286-0.214c0.084-0.068,0.163-0.141,0.243-0.212\
+              c0.103-0.09,0.206-0.18,0.304-0.276c0.071-0.07,0.136-0.144,0.204-0.217c0.097-0.104,0.196-0.206,0.287-0.316\
+              c0.073-0.086,0.138-0.178,0.207-0.268c0.077-0.101,0.156-0.199,0.228-0.305c0.091-0.133,0.173-0.272,0.255-0.411\
+              c0.041-0.069,0.085-0.134,0.124-0.205c0.36-0.651,0.628-1.361,0.781-2.113c0.104-0.503,0.152-1.01,0.152-1.512V58.702\
+              c0-7.681,6.249-13.93,13.93-13.93h0.433c7.681,0,13.93,6.249,13.93,13.93v72.025c0,0.277,0.017,0.549,0.047,0.818\
+              c-0.396,3.934,2.339,7.537,6.292,8.156l44.88,7.037c0.035,0.006,0.071,0.011,0.106,0.017c27.148,3.857,47.621,27.444,47.621,54.866\
+              v0.766c0,12.691-3.097,25.35-8.956,36.606l-20.345,39.088c-1.913,3.675-0.484,8.203,3.19,10.115c1.106,0.576,2.29,0.85,3.457,0.85\
+              c2.708,0,5.323-1.472,6.659-4.039l20.345-39.088c6.968-13.387,10.65-28.44,10.65-43.532v-0.766\
+              c0-16.958-6.122-33.351-17.237-46.158C250.845,142.671,235.499,134.309,218.731,131.913z')
+              path(style='fill: #222220' d='M57.678,98.843c1.149,0,2.303-0.264,3.368-0.799c2.533-1.273,4.131-3.866,4.131-6.701V61.55h32.633\
+              c4.142,0,7.5-3.357,7.5-7.5s-3.358-7.5-7.5-7.5H65.177V16.758c0-2.835-1.599-5.428-4.131-6.701\
+              c-2.533-1.273-5.567-1.009-7.842,0.682L3.026,48.03C1.122,49.445,0,51.678,0,54.05s1.122,4.604,3.026,6.02l50.177,37.293\
+              C54.522,98.342,56.095,98.843,57.678,98.843z M50.177,76.424L20.073,54.05l30.104-22.373V76.424z')
+              path(style='fill: #222220' d='M295.278,48.03l-50.178-37.292c-2.274-1.689-5.309-1.953-7.842-0.682\
+              c-2.533,1.273-4.131,3.866-4.131,6.701V46.55h-32.633c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5,7.5,7.5h32.633v29.793\
+              c0,2.835,1.599,5.428,4.131,6.701c1.065,0.535,2.219,0.799,3.368,0.799c1.583,0,3.156-0.501,4.475-1.48l50.178-37.293\
+              c1.904-1.415,3.026-3.647,3.026-6.02S297.183,49.445,295.278,48.03z M248.127,76.424V31.676l30.104,22.374L248.127,76.424z')
+          |               Swipe
+        .gallery-slider.owl-carousel.owl-theme
+         each addhouse in houses
+          - let houseIsPremium = addhouse.premiumHouse==true && addhouse.isBooked == false ? true:false
+          - if(houseIsPremium)
+           .item
+            a(href=`details/${addhouse._id}`) 
+             div
+              .add-image-details.add-details
+                h3(style='color: white')= addhouse.houseName
+                .item-location-details
+                  svg.home-svg(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='white' viewbox='0 0 16 16')
+                    path(d='M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z')
+                  p.item-estate= addhouse.estateId.estateName
+                  p.item-loc= addhouse.locationID.locationName
+                  - let addprice = `KSH ${addhouse.price}`
+                  h3(style='color: #7ed56f')= addprice
+        // /.owl-demo
+      // /.col-md-8
+    // /.row
+  // /.container
+  .apartments-area.bg-gray-color
+   .container
+    .row
+      .col-md-12
+        .heading-content-one.border
+          h5.sub-title.default-text-gradient
+            | Available houses for you
+        // /.Apartments-heading-content
+      // /.col-md-12
+    // /.row
+    .row#mainHouseContainer
+      // start of item
+    each house in houses 
+     - let notBookedHouse = !house.isBooked
+     if notBookedHouse  
+      .col-md-3.col-sm-6.col-xs-6.mainHouseItem
+        .apartments-content
+          .image-content
+            a(href=`details/${house._id}`)
+              img(src=`/img/houses/${house.pictures[0]}` alt=`${house.houseName}`)
+          // /.image-content
+          .text-content
+            .top-content(style='padding:0px 20px')
+              h3
+                a(href=`details/${house._id}`)= house.houseName
+              span
+                i.fa.fa-map-marker
+                - let name = `${house.locationID.locationName} , ${house.estateId.estateName}`;
+                p(style='margin-bottom:0')= name
+            // /.top-content
+            .bottom-content.clearfix
+              .meta-bed-room
+                i.fa.fa-bed
+                |  2 Beds
+                house.numberOfBeds
+              .meta-bath-room
+                i.fa.fa-bath
+                - let shower = house.bathShower ? 'has' : 'no';
+                - let hasShower = `${shower} shower`;
+                = hasShower 
+              .meta-bed-room
+                i.glyphicon.glyphicon-home
+                - let tiles = house.tiledFloor ? 'has' : 'no';
+                - let hasTiles = `${tiles} Tiles`;
+                = hasTiles
+              .meta-bath-room
+                i.fa.fa-power-off
+                - let tokens = house.powerAndWaterBill ? 'Tokens' : 'no Tokens';
+                = tokens           
+              span.clearfix
+              - let houseprice = `KSH ${house.price}`
+              .rent-price.pull-left= houseprice
+              .share-meta.dropup.pull-right
+                ul
+                  li.dropup
+                    a.dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                      i.fa.fa-share-alt
+                    ul.dropdown-menu
+                      li
+                        a(href='#')
+                          i.fa.fa-facebook
+                      li
+                        a(href='#')
+                          i.fa.fa-twitter
+                      li
+                        a(href='#')
+                          i.fa.fa-instagram
+                      li
+                        a(href='#')
+                          i.fa.fa-google-plus
+                  li
+                    a(href='#')
+                      i.fa.fa-star-o
+            // /.bottom-content
+          // /.text-content
+        // /.partments-content
+      // end of item
+      // start of item
+      
+      .clearfix.hidden-md.hidden-lg
+      //
+        Use clear fix after two items
+    // /.row
+  .container
+   .row
+     .col-md-12
+       .col-md-12.col-sm-5.col-xs-6(style='text-align:center')
+         span Page
+         h3#page_number 1  
+  .container
+   .row
+     .col-md-4
+     .col-md-4
+       .col-md-6.col-sm-5.col-xs-6
+         a#pagination_prev_btn.button.nevy-button(href='#') Prev
+       .col-md-6.col-sm-5.col-xs-6
+         a#pagination_next_btn.button.nevy-button(href='#') Next
+     .col-md-4
+  .container 
+    br   
+
+      
+  
+  .call-to-action.default-template-gradient
+    .container
+        .row.tb
+            .col-md-6.col-sm-6.tb-cell
+                .contact-left-content
+                h3 Do you want to Rent your House
+                p(style='color: white') Sign up as an owner
+                // /.contact-left-content
+            // /.col-md-6
+            .col-md-6.col-sm-6.tb-cell
+                .contact-right-content
+                 a.button(href='tel:0710664418') Contact us 
+  .container
+   .row
+    // start of item
+    .col-md-12.premium-house
+      hr
+      h3(style='font-family: Poppins, sans-serif ;font-weight: 600;opacity: .8;') Famous Location
+      .col-md-4.col-sm-12.col-xs-12
+       a( target= "_blank" href="/location/6142a35f56e03fa19c4e71bf") 
+        .gallery-left-content
+          h2
+            | Nyawitta  
+            br
+            | Area
+          p
+            - let nyawita = `${nyawittaNumber} Houses Available`
+            = nyawita 
+      .col-md-4.col-sm-6.col-xs-12
+       a(  target= "_blank" href="/location/6142a31e56e03fa19c4e71ba") 
+        .gallery-left-content
+          h2
+            | Mabungo 
+            br
+            | Residence
+          - let mabungo = `${mabungoNumber} Houses Available`  
+          p= mabungo
+      .col-md-4.col-sm-6.col-xs-12
+       a(  target= "_blank" href="/location/6142a2ef56e03fa19c4e71b7")
+        .gallery-left-content
+          h2
+            | Silwal 
+            br
+            | Estate
+          p
+            - let silwal = `${SilwalNumber} Houses Available` 
+            = silwal
+  .bg-color(style='padding: 5px;')
+   .call-to-action.default-template-gradient
+    .container
+      .row.tb
+        .col-md-4.col-sm-4.tb-cell
+          .contact-left-content
+            h3 Available Payment Options
+          // /.contact-left-content
+        // /.col-md-4
+        .col-md-4.col-sm-4.tb-cell
+          .contact-right-content
+            h4
+              ul
+                li
+                  | Mpesa
+                li
+                  | Credit Card
+                li
+                  | Paypal
+ include _footer 

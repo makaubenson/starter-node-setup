@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Ian mwema",
+    "phone": "070000000",
+    "email": "mwema@example.com",
+    "paymentMethods": ["mpesa", "cash", "bank"],
+    "secondaryContact": "0711111111",
+    "id_no": 5555555
+  },
+  {
+    "name": "Joseph Kalulu",
+    "phone": "0700000000",
+    "email": "joseph@example.com",
+    "paymentMethods": ["mpesa", "cash", "bank"],
+    "secondaryContact": "071111111111",
+    "id_no": 12345678
+  },
+  {
+    "name": "Juma jimo",
+    "phone": "0700000000",
+    "email": "juma@example.com",
+    "paymentMethods": ["mpesa", "cash", "bank"],
+    "secondaryContact": "071111111111",
+    "id_no": 2345678
+  }
+]

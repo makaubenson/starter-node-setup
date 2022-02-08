@@ -1,0 +1,32 @@
+[
+  {
+    "locationID": "6142a2ef56e03fa19c4e71b7",
+    "estateName": "Karen",
+    "ownerId": "6142ab6078244549cd5fd3b7",
+    "totalHouses": 12,
+    "plotNumber": 1111,
+    "houseVarinents": ["2bedroom", "1bedroom"],
+    "additionalCharges": 0,
+    "security": "good"
+  },
+  {
+    "locationID": "6142a31e56e03fa19c4e71ba",
+    "estateName": "John adero",
+    "ownerId": "6142abc040fca5fe33f0c76a",
+    "totalHouses": 2,
+    "plotNumber": 222,
+    "houseVarinents": ["1bedroom"],
+    "additionalCharges": 0,
+    "security": "best"
+  },
+  {
+    "locationID": "6142a35f56e03fa19c4e71bf",
+    "estateName": "mbwa kali",
+    "ownerId": "6142abdf40fca5fe33f0c76d",
+    "totalHouses": 10,
+    "plotNumber": 22,
+    "houseVarinents": ["2bedroom"],
+    "additionalCharges": 0,
+    "security": "best"
+  }
+]

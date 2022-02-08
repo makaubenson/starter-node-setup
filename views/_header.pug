@@ -1,0 +1,127 @@
+// ====== Header Mobile Area ======
+header.mobile-header-area.bg-gray-color.hidden-md.hidden-lg
+  .container
+    .row
+      .col-xs-12.tb
+        .mobile-header-block
+          .menu-area.tb-cell
+            // Mobile Main Menu
+            .mobile-menu-main.hidden-md.hidden-lg
+              .menucontent.overlaybg
+              .menuexpandermain.slideRight
+                a#navtoggole-main.animated-arrow.slideLeft.menuclose
+                  span
+                span#menu-marker
+              // /.menuexpandermain
+              #mobile-main-nav.main-navigation.slideLeft
+                .menu-wrapper
+                  #main-mobile-container.menu-content.clearfix
+                  .left-content
+                    ul
+                     if user
+                      li
+                       a.cd-signin(style='margin-left:10px' href='/profile'  )= user.name.split(" ")[0]  
+                        img(style='height: 40px;border-radius: 100%; margin-left:10px' src='/img/users/default.jpg'  alt=`${user.name}`)
+                      li 
+                       a.logout_btn(href="#") logout 
+                     else
+                      li
+                        a.cd-signin(href='/login')
+                          i.fa.fa-address-book
+                          | Login /
+                          | Register
+                  // /.left-content
+              // /#mobile-main-nav
+            // /.mobile-menu-main
+          // /.menu-area
+          .logo-area.tb-cell
+            .site-logo
+              a(href='home.html')
+                img(width='53px' src='/img/logo.png' alt='site-logo')
+            // /.site-logo
+          // /.logo-area
+        // /.mobile-header-block
+      // /.col-md-12
+    // /.row
+  // /.container
+// /.mobile-header-area
+// ====== Header Top Area ======
+header.header-area.hidden-xs.hidden-sm
+  .container
+    .header-top-content.header-three
+      .row
+        .col-md-7.col-sm-7
+          .site-logo
+            a(href='/')
+              img(style='width: 60px' src='/img/logo.png' alt='site-logo')
+          // /.site-logo
+        // /.col-md-8
+        .col-md-5.col-sm-5
+          .left-content
+            ul
+              li
+                a(href='/contact')
+                  i.fa.fa-phone-square
+                  | Call Us - 0710664418
+            
+              if user
+               li
+                a.cd-signin(style='margin-left:10px' href='/profile'  )= user.name.split(" ")[0]  
+                 img(style='height: 40px;border-radius: 100%; margin-left:10px' src='/img/users/default.jpg'  alt=`${user.name}`)
+               li 
+                a.logout_btn.cd-signin( style='padding:0' href='/')
+                 p(style='margin:0;padding:0 10px;background-color:#0e385d;font-weight:200;border-radius:10px;color:white;cursor: crosshair;') Logout
+               
+                        
+              else 
+               li
+                a.cd-signin(href='/login')
+                  i.fa.fa-address-book
+                  | Login / Register
+          // /.left-content
+        // /.col-md-4
+      // /.row
+    // /.header-top-content
+  // /.container
+// /.head-area
+// ====== Header Bottom Area ======
+.header-bottom-area.four.default-template-gradient.hidden-xs.hidden-sm.hover-shadow(style='margin: 1rem; border-radius: 15px')
+  .container
+    .header-bottom-content
+      .row
+        .col-md-9.col-sm-9
+          nav#main-nav.site-navigation.top-navigation
+            .menu-wrapper
+              .menu-content
+                ul.menu-list
+                  li
+                    hr
+                  li
+                    a(href='/') Home
+                  if user  
+                   li
+                    a(href='/profile') Profile
+
+                // /.menu-list
+              // /.menu-content
+            // /.menu-wrapper
+          // /.site-navigation
+        // /.col-md-9
+        // /.col-md-3
+      // /.row
+    // /.header-bottom-content
+  // /.header-ara
+// /.head-area
+// ====== Header Overlay Content ======
+.header-overlay-content
+  // overlay-menu-item
+  .overlay.overlay-hugeinc.gradient-transparent.overlay-menu-item
+    button.overlay-close(type='button') Close
+    nav
+      ul.overlay-menu
+        li
+          a(href='/') Home
+        if user  
+         li
+          a(href='/profile') Profile
+        

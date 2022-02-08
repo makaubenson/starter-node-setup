@@ -1,0 +1,131 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='Maseno Unihome. Maseno online house booking system')
+  meta(name='author' content='Techkey cybernetics')
+  title Unihome | Booking system
+  // Favicons
+  link(rel='shortcut icon' href='/img/logo.png' type='image/x-icon')
+  //
+    GOOGLE WEB FONT
+    <!-- <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+    rel="stylesheet"
+    />
+  // BASE CSS
+  // <link href="css/bootstrap.css" rel="stylesheet" />
+  // <link href="build/bootstrap.css" rel="stylesheet" />
+  link(href='/assets/css/bootstrap.css' rel='stylesheet')
+  // <link href="css/style.css" rel="stylesheet" />
+  // <link href="build/style.css" rel="stylesheet" />
+  link(href='/assets/css/style.css' rel='stylesheet')
+  // <link href="css/responsive.css" rel="stylesheet" />
+  // <link href="build/responsive.css" rel="stylesheet" />
+  link(href='/assets/css/responsive.css' rel='stylesheet')
+  // <link href="css/menu.css" rel="stylesheet" />
+  // <link href="build/menu.css" rel="stylesheet" />
+  link(href='/assets/css/menu.css' rel='stylesheet')
+  // <link href="css/animate.css" rel="stylesheet" />
+  // <link href="css/icon_fonts/css/all_icons_min.css" rel="stylesheet" />
+  // <link href="css/skins/square/grey.css" rel="stylesheet" />
+  // YOUR CUSTOM CSS
+  // <link href="css/custom.css" rel="stylesheet" />
+  // <link href="build/custom.css" rel="stylesheet" />
+  link(href='/assets/css/custom.css' rel='stylesheet')
+  script(defer src='/assets/custom.js')
+  // <script src="js/modernizr.js"></script>
+  script(src='/assets/js/modernizr.js')
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" )
+  // Modernizr
+  style.
+    .code-input {
+    width: 45px ;
+    margin: 10px;
+    }
+#preloader
+  div(data-loader='circle-side')
+// /Preload
+#loader_form
+  div(data-loader='circle-side-2')
+// /loader_form
+// End Header
+main
+  .error-container
+   .err-display
+  p#user-email(style='display:none')= email
+  #form_container.login_form_container
+    .row
+      .col-lg-5
+        #left_form
+          a(href='home.html')
+            img(src='/img/logo.png' alt='Unihome ')
+          h2 Verification
+          p Enter The Verification Code Sent To Your Email
+          p
+            a#resendCodebtn(href='#' style='color: white') RESEND CODE
+      .col-lg-7
+        #wizard_container
+          #top-wizard
+            #progressbar
+          // /top-wizard
+          form#wrapped.verify-code-form(name='login' method='POST')
+            input#website(name='website' type='text' value='')
+            // Leave for security protection, read docs for details
+            #middle-wizard
+              .step
+                h3.main_question(style='color: #777')
+                  strong
+                  | Email Verification
+                .row
+                  .col-md-6
+                    .form-group
+                      label#email_label(for='')= email
+                // /row
+                hr
+                .row
+                  .col-md-12
+                    .form-group
+                      h4.main_question(style='color: #777;font-weight: 200;')
+                        strong
+                        | Enter Code Below
+                      div(style='display: flex;flex-direction: row; flex-wrap: wrap;')
+                        div(style='display: flex;  min-width: 190px;')
+                          input.code-input.form-control(name='code' required)
+                          input.code-input.form-control(name='code' required)
+                          input.code-input.form-control(name='code' required)
+                        div(style='display: flex; min-width: 190px;')
+                          input.code-input.form-control(name='code' required)
+                          input.code-input.form-control(name='code' required)
+                          input.code-input.form-control(name='code' required)
+                .row
+                  .col-md-6
+                    input.btns--green(type='submit' value='Verify')
+                br
+                // /row
+                // /row
+        // /Wizard container
+  // /Form_container
+// end footer
+// Modal info
+// /.modal
+// SCRIPTS
+// Jquery
+// <script src="js/jquery-3.5.1.min.js"></script>
+script(src='/assets/js/jquery-3.5.1.min.js')
+// Common script
+// <script src="js/common_scripts_min.js"></script>
+script(src='/assets/js/common_scripts_min.js')
+// Wizard script
+// <script src="js/registration_wizard_func.js"></script>
+script(src='/assets/js/registration_wizard_func.js')
+// Menu script
+// <script src="js/velocity.min.js"></script>
+script(src='/assets/js/velocity.min.js')
+// <script src="js/main.js"></script>
+script(src='/assets/js/main.js')
+// Theme script
+// <script src="js/functions.js"></script>
+script(src='/assets/js/functions.js')
+script(src='/assets/js/verificationCode.js')

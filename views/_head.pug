@@ -1,0 +1,106 @@
+doctype html
+head
+  //
+    Basic Page Needs
+    ==================================================
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  //
+    Specific Meta
+    ==================================================
+  meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+  meta(name='description' content='unihome is an online house booking system for maseno university student.')
+  meta(name='keywords' content='Unihome, Maseno online booking system')
+  meta(name='author' content='Techkey cybernetics')
+  //
+    Titles
+    ==================================================
+  title Unihome page
+  //
+    Favicons
+    ==================================================
+  link(rel='shortcut icon' href='/img/logo.png')
+  link(rel='apple-touch-icon' href='/img/logo.png')
+  link(rel='apple-touch-icon' sizes='72x72' href='/img/logo.png')
+  link(rel='apple-touch-icon' sizes='114x114' href='/img/logo.png')
+  //
+    Custom Font
+    ==================================================
+  link(href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i%7cPoppins:300,400,500,600,700' rel='stylesheet')
+  //
+    CSS
+    ==================================================
+  link(rel='stylesheet' href='/assets/css/plugins.css')
+  link(rel='stylesheet' href='/assets/css/colors.css')
+  link(rel='stylesheet' href='/style.css')
+  
+  //
+    Modernizr
+    ==================================================
+  script(src='/assets/js/vendor/modernizr-2.8.3.min.js')
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" )
+  style.
+    .alerts {
+    background-color: white;
+    padding: 1rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    box-shadow: 1px 1px 8px #0000001f;
+    border-radius: 10px;
+    animation: showDialog 1s ease-in;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    }
+    .alerts:hover {
+    transform: scale(1.03);
+    box-shadow: 1px 1px 8px #0000006b;
+    }
+    .alert--error {
+    background-color: #f52424;
+    color: white;
+    font-weight: 400;
+    }
+    .alert--success {
+    background-color: #7ed56f;
+    color: white;
+    font-weight: 400;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0);
+    padding: 1rem;
+    }
+    .err-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s;
+    }
+    .err-display div {
+    margin-left: 20px;
+    }
+    @keyframes showDialog {
+    0% {
+    transform: translateY(-25rem);
+    }
+    10% {
+    opacity: 1;
+    }
+    100% {
+    transform: translateY(0);
+    opacity: 1;
+    }
+    }
+    .owl-stage-outer .owl-stage .owl-item{
+      //- width: 250px !important;
+    }
+    .error-container {
+    position: absolute;
+    width: 100%;
+    z-index: 100000;
+    top: 70px;
+    }
+    .gallery .list-view .owl-stage-outer .owl-stage .owl-item {
+      min-height: 110px;
+    }
+    #uploadLabel:hover {
+     cursor: pointer;
+    }

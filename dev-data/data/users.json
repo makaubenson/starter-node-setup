@@ -1,0 +1,32 @@
+[
+  {
+    "name": "alexander karanja",
+    "id_no": 444444,
+    "email": "alex@techkey.co.ke",
+    "role": "user",
+    "photo": "default.jpg",
+    "phone": "0700000000",
+    "yearOfStudy": "4",
+    "active": true
+  },
+  {
+    "name": "John kara",
+    "id_no": 1223432,
+    "email": "john@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "phone": "070000111",
+    "yearOfStudy": "2",
+    "active": true
+  },
+  {
+    "name": "Peter mwami",
+    "id_no": 5544555,
+    "email": "peter@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "phone": "071100111",
+    "yearOfStudy": "4",
+    "active": true
+  }
+]

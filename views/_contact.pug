@@ -1,0 +1,63 @@
+extends base  
+block content 
+ .contact-us-area
+  .container
+    .row
+      .col-md-4
+        .contact-us-content-left
+          .contact
+            h4
+              i.fa.fa-map-marker
+              | Address
+            p
+              | Maseno 
+              br
+              |  Kisumu
+          // /.contact
+          .contact
+            h4
+              i.fa.fa-envelope
+              | Mall
+            p
+              | info@example.com 
+              br
+              |  info@example.com
+          // /.contact
+          .contact
+            h4
+              i.fa.fa-volume-control-phone
+              | Call
+            p
+              | +254710000000 
+              br
+              |  +2547100033
+          // /.contact
+        // /.contactus-content-left
+      // /.col-md-4
+      .col-md-8
+        .contact-us-content-right#MaincontactFormContainer
+          form#MaincontactForm(action='#')
+            h3 Have a question?
+            img(src='/img/logo.png' alt='logo')
+            .input-content.clearfix
+              h4 Send Us An email
+              .row
+                .col-sm-6
+                  - let username = user?.name || ""
+                  input#contactformName.form-control(type='text'  value=`${username}` placeholder='Name*')
+                // /.col-sm-6
+                .col-sm-6
+                  - let usermail = user?.email || ""
+                  input#contactformEmail.form-control.Email(type='email'  value=`${usermail}` placeholder='Email*')
+                // /.col-sm-6
+                .col-md-12
+                  input#contactformSubject.form-control.website(type='text' placeholder='Subject')
+                // /.col-md-12
+                .col-md-12
+                  textarea#contactformMessage(rows='2' cols='80')  
+                // /.col-md-12
+              // /.row
+              .subimt-button.clearfix
+                input#contactformSubmitBtn.submit.default-template-gradient(type='submit' value='Submit')
+              // /.subimt 
+  

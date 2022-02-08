@@ -1,0 +1,50 @@
+{
+  "name": "unihomes-real-estate",
+  "version": "1.0.0",
+  "description": "Online booking sytems for universities",
+  "main": "server.js",
+  "scripts": {
+    "start": " node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aknjoroge/uniHomes.git"
+  },
+  "author": "Alexander Karanja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aknjoroge/uniHomes/issues"
+  },
+  "homepage": "https://github.com/aknjoroge/uniHomes#readme",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.1.0",
+    "express-rate-limit": "^5.3.0",
+    "helmet": "^4.6.0",
+    "html-to-text": "^8.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.2",
+    "mpesa-api": "^3.0.2",
+    "multer": "^1.4.3",
+    "nodemailer": "^6.6.3",
+    "nodemon": "^2.0.12",
+    "paypal-rest-sdk": "^1.8.1",
+    "pug": "^3.0.2",
+    "random-number": "0.0.9",
+    "sharp": "^0.29.1",
+    "stripe": "^8.176.0",
+    "validator": "^13.6.0",
+    "xss-clean": "^0.1.1"
+  },
+  "engines": {
+    "node": "^14"
+  }
+}

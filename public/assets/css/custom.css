@@ -1,0 +1,60 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+.alerts {
+  background-color: white;
+  padding: 1rem;
+  font-family: sans-serif;
+  font-size: 18px;
+  box-shadow: 1px 1px 8px #0000001f;
+  border-radius: 10px;
+  animation: showDialog 1s ease-in;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+.alerts:hover {
+  transform: scale(1.03);
+  box-shadow: 1px 1px 8px #0000006b;
+}
+
+.alert--error {
+  background-color: #f52424;
+  color: white;
+  font-weight: 400;
+}
+.alert--success {
+  background-color: #7ed56f;
+  color: white;
+  font-weight: 400;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0);
+  padding: 1rem;
+}
+.err-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.4s;
+}
+.err-display div {
+  margin-left: 20px;
+}
+@keyframes showDialog {
+  0% {
+    transform: translateY(-25rem);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.error-container {
+  position: absolute;
+  width: 100%;
+  z-index: 100000;
+  top: 70px;
+}

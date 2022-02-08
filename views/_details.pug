@@ -1,0 +1,233 @@
+extends base
+
+block content
+ 
+ .page-header.default-template-gradient.hover-shadow
+  .container
+    .row
+      .col-md-12
+        h2.page-title House
+        - let moredetail = `More Details About ${house.houseName}`
+        p.page-description= moredetail
+ 
+ .apartment-single-area
+  .container
+    .row
+      - let width = user? "col-md-12":"col-md-8";
+      .userwidth(class=`${width}`)
+        .corousel-gallery-content
+          .gallery
+            .full-view.owl-carousel
+              a.item.image-pop-up(href=`/img/houses/${house.pictures[0]}` target="_blank" )
+                img(src=`/img/houses/${house.pictures[0]}` alt='corousel' )
+              a.item.image-pop-up(href=`/img/houses/${house.pictures[1]}` target="_blank")
+                img(src=`/img/houses/${house.pictures[1]}` alt='corousel')
+              a.item.image-pop-up(href=`/img/houses/${house.pictures[0]}` target="_blank")
+                img(src=`/img/houses/${house.pictures[0]}` alt='corousel')
+            .list-view.owl-carousel
+              .item
+                img(src=`/img/houses/${house.pictures[0]}` alt='corousel-image')
+              .item
+                img(src=`/img/houses/${house.pictures[1]}` alt='corousel-image')
+              .item
+                img(src=`/img/houses/${house.pictures[0]}` alt='corousel-image')
+          // /.gallery-two
+        // /.corousel-gallery-content
+        .family-apartment-content.mobile-extend(style='margin-top: 1rem')
+          .tb
+            .tb-cell
+              h3.apartment-title
+                svg.bi.bi-house-door-fill(xmlns='http://www.w3.org/2000/svg' width='36' height='36' fill='currentColor' viewbox='0 0 16 16')
+                  path(d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z')
+                = house.houseName
+            // /.tb-cell
+            .tb-cell
+              - let rent = `Rent KSH ${house.price}.`
+              p.pull-right.rent= rent
+            // /.tb-cell
+          // /.tb
+          .clearfix
+          // /.clearfix
+          p.apartment-description.default-gradient-before
+            - let beds = `${house.numberOfBeds} beds,`; let furniture = house.furniture[0]=="table"? "1 table and a chair":" 1 chair "; let tiles = house.tiledFloor? "Has a tiled floor" : "no tiled floor";
+            = `${beds} , ${furniture} , ${tiles}` 
+          .price-details(style='font-weight: 200')
+            h3 Price Details-
+            ul
+              li
+                span Rent: 
+                - let price = `KSH ${house.price}`
+                = price
+              li
+                span Service Charge :
+                |  Per semester ( 3-months )
+              li
+                span Security Deposit :
+                - let housedepoist =`KSH ${house.deposit}`;
+                = housedepoist
+              li
+                span Payment day :
+                |  1 days before booking
+          // /.price
+          .property-details(style='\
+          padding: 1rem;\
+          background-color: #f7f7f7;\
+          font-weight: 200;\
+          ')
+            h3 House Details-
+            ul
+              li
+                span Owner : 
+                = houseOwner.name
+              li
+                span Location : 
+                - let location = `${house.locationID.locationName} ${house.estateId.estateName}`
+                = location
+              li
+                span Flool tiles : 
+                = tiles
+              li
+                span Ceiling : 
+                - let ceiling = house.ceiling? " Has a ceiling":"Has no ceiling";
+                = ceiling
+              li
+                span Tokens :
+                - let tokenbill = house.powerAndWaterBill? "Tokens are in use, electricity is paid by students":"Tokens are not in use, electricity is paid by administration "
+                = tokenbill
+              li
+                span Shower :
+                - let showering = house.bathShower? " Bathing shower present" : "No Bathing shower available"
+                = showering
+              li
+                span Bedding Replacement :
+                - let bedding = house.beddingReplacement? " Old and worn out beddings are replaced by the management":"  Worn out beddings are Not replaced by the management  "
+                = bedding
+              li
+                span  Furniture :
+                - let furnitureCondition = house.furniture[0]=="table"? "Has a table and  chair available":" Has no furniture ";
+                = furnitureCondition
+          // /.Property
+          // house details
+          .apartment-overview
+            .row
+              .col-md-12
+                h3 Description
+                .overview
+                  ul(style='width: 100%')
+                    li(style='\
+                    width: 100%;\
+                    letter-spacing: 1.1px;\
+                    font-weight: 500;\
+                    line-height: 28px;\
+                    font-size: 16px;\
+                    ')
+                      span.pull-right(style='width:100%')
+                        = house.description
+                // /.apartment-overview
+              // /.col-md-12
+            // /.row
+          // /.house details
+          // terms and condition details
+          .apartment-overview
+            .row
+              .col-md-12
+                h3 Terms and Conditions
+                .overview
+                  ul(style='width: 100%')
+                    li(style='\
+                    width: 100%;\
+                    letter-spacing: 1.1px;\
+                    font-weight: 300;\
+                    line-height: 28px;\
+                    ')
+                      span
+                        ol(type='1')
+                          - let terms = house.terms_and_condition.split(".");
+                          each term in terms
+                           li(style='padding: 0')
+                            = term 
+                // /.apartment-overview
+              // /.col-md-12
+            // /.row
+          // /.terms and condition details
+          .apartment-overview
+            .row
+              .col-md-12
+                h3
+                  svg.bi.bi-geo-alt-fill(style='margin-right: 10px' xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='white' viewbox='0 0 16 16')
+                    path(d='M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z')
+                  |                       Location Overview
+                .overview
+                  ul
+                    li
+                      | Estate Name
+                      span.pull-right= house.estateId.estateName
+                    li
+                      | Estate Security is 
+                      = house.estateId.security
+                    li
+                      | Total Houses 
+                      = house.estateId.totalHouses
+                // /.apartment-overview
+              // /.col-md-12
+            // /.row
+          // /.overview
+        // /.family-apartment-content
+        .hidden-md.hidden-lg.text-center.extend-btn
+          span.extend-icon
+            i.fa.fa-angle-down
+      // /.col-md-8
+      - let userStyling = user ? "display:none": " ";
+      .col-md-4(style=`${userStyling}`)
+        .apartment-sidebar
+          .widget_rental_search.clerafix
+            .form-border.gradient-border
+              .err-display(style='position:absolute')
+              form#detailsLoginForm.advance_search_query.booking-form(action='booking.html' method='get')
+                .form-bg.seven
+                  .form-content
+                    h2.form-title Login To Book This Apartment
+                    .form-group
+                      label Email
+                      input#detailsLoginEmail(type='email' placeholder='Email')
+                    // /.form-group
+                    .form-group
+                      label Password
+                      input#detailsLoginPassword(type='password' name='Password' placeholder='********')
+                    // /.form-group
+                    .form-group
+                      button#detail_login_btn.button.default-template-gradient.button-radius(type='submit')
+                        | Login to Book       
+ footer.footer-area.bg-gray-color(style='background-image: url(assets/images/footer-bg.png)')
+  .container
+    .row
+      .col-md-12
+        .apartment-sidebar
+          .widget_rental_search.clerafix
+            .form-border.gradient-border
+              form.advance_search_query.booking-form(action='booking.html' method='get')
+                .form-bg.seven
+                  .form-content
+                    // /.form-group
+                    if user
+                     a.button.default-template-gradient.button-radius(href=`/purchase/${house._id}`) Book Now
+                     p(style='margin: 0; text-align: center')
+                       | Only 10 houses remaining
+                    else 
+                     a#call_login_btn.button.default-template-gradient.button-radius(href='#') Login
+                     p(style='margin: 0; text-align: center')
+                       | Get access to over 167 Houses
+                        
+                  // /.form-content
+                // /.form-bg
+              // /.advance_search_query
+            // /.form-border
+          // /.widget_rental_search
+          // /.partments-content
+    .row
+      .col-md-12
+        .bottom-content
+          p
+            | Copyright &copy;2021 
+            a(href='#') Techkey
+

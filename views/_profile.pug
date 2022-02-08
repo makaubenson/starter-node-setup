@@ -1,0 +1,103 @@
+extends base
+block content 
+ .blog-area.bg-gray-color
+  .container
+    .row
+      .col-md-6
+        .blog-content-left(style='background-color: white;')
+          .tab-content
+            #home.tab-pane.active(role='tabpanel')
+              .row
+                .col-md-6.col-sm-6
+                  article.post
+                    figure.post-thumb
+                      p#userMark(style='display:none')= user._id
+                      span
+                        img(src=`/img/users/${user.photo}` alt=`${user.name}`)
+                    // /.post-thumb
+                    .post-content
+                      .entry-meta
+                        form#profilePhotoUploadForm( method="post"  enctype="multipart/form-data" ) 
+                         input#profilePhotoUpload.form__upload(type='file',  style ='opacity:0;height:0', name="profilePhotoUpload", accept="image/*" )
+                         label#uploadLabel(for="profilePhotoUpload") Upload a profile image
+                      // /.entry-header
+                      .entry-meta
+                        br
+                        h4(style='margin: 0;font-family: Poppins,sans-serif; opacity: .9;font-weight: 300;')= user.name
+                        h4(style='margin: 0; font-family: Poppins,sans-serif; opacity: .9;font-weight: 300;')= user.email
+                      // /.entry-header
+                      .profile-btns
+                        a.btns(href='/myhouse') My houses
+                        a.btns(href='#') Liked House
+                        a.btns(href='#') House Receipt
+                    // /.post-content
+                  // /.post
+                // /.col-md-6
+              // /.row
+            // /.home
+          // /.tab-content
+        // /.blog-content-left
+      // /.col-md-8
+      .col-md-6
+        .card
+          .widget.widget_popular_posts.clearfix(style='background-color: white;padding: 1rem;')
+            .widget-title-area
+              h4#profileMenuText.widget-title(style='font-family: Poppins,sans-serif;') Profile Details
+          
+            
+              .form-border
+                form#profileUpdateForm.advance_search_query.booking-form(action='booking.html' method='get')
+                  .form-bg.seven
+                    .form-content(style='display: flex;flex-direction: column;')
+                      .form-group
+                        label Name
+                        input#profileUpdateName(type='text' value=`${user.name}` name='Name' placeholder='Name')
+                      .form-group
+                        label Email
+                        input#profileUpdateEmail(type='email' value=`${user.email}` name='email' placeholder='Email')
+                      .form-group
+                        label Phone
+                        input#profileUpdatePhone(type='number' value=`${user.phone}`  name='phone' placeholder='phone')
+                      .form-group
+                        label ID number
+                        input#profileUpdateID(type='number' value=`${user.id_no}` name='id' placeholder='ID number')
+                      .form-group
+                        label Reg number
+                        - let regNo = user.reg_no || " "
+                        input#profileUpdateReg(type='text' value=`${regNo}` name='regno' placeholder='Registration')
+                      // /.form-group
+                      // /.form-group
+                      .form-group
+                        button#profileUpdateBtn.button.default-template-gradient.button-radius(type='submit')
+                          | Update Details
+                      // /.form-group
+                    // /.form-content
+                  // /.form-bg
+                // /.advance_search_query
+            // /.widget-content
+          // /.widget widget_popular_post
+        // /.blog-content-right
+      // /.col-md-4
+      .col-md-12
+        .card
+          .widget.widget_popular_posts.clearfix(style='background-color: white;padding: 1rem;')
+            form#profileUpdatePasswordForm.advance_search_query.booking-form(action='booking.html' method='get')
+              .form-bg.seven
+                .form-content(style='display: flex;flex-direction: column;')
+                  h3(style='font-family: sans-serif,Poppins;') Password Updation
+                  .form-group
+                    label Old password
+                    input#profileUpdateOldPass(type='password' name='FirstName' placeholder='Old ******')
+                  // /.form-group
+                  .form-group
+                    label New password
+                    input#profileUpdateNew(type='password' name='FirstName' placeholder='New *****')
+                  // /.form-group
+                  .form-group
+                    label Confirm password
+                    input#profileUpdateConfirmPass(type='password' name='FirstName' placeholder='Confirm ******')
+                  // /.form-group
+                  // /.form-group
+                  .form-group
+                    button#profileUpdatePasswordBtn.button.default-template-gradient.button-radius(type='submit')
+                      | Update Password

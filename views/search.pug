@@ -1,0 +1,116 @@
+extends base
+
+block content
+
+  .apartments-area.bg-gray-color
+   .container
+    .row
+      .col-md-12
+        .heading-content-one.border
+          h5.sub-title.default-text-gradient
+            | Search Results
+            svg.bi.bi-search(xmlns='http://www.w3.org/2000/svg' style='margin-left:5px' width='17' height='17' fill='currentColor' viewbox='0 0 16 16')
+             path(d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z')
+        // /.Apartments-heading-content
+      // /.col-md-12
+    // /.row
+    .row#mainHouseContainer
+      // start of item
+    if houses  
+     each house in houses 
+      - let notBookedHouse = !house.isBooked 
+      if notBookedHouse  
+       .col-md-3.col-sm-6.col-xs-6.mainHouseItem
+        .apartments-content
+          .image-content
+            a(href=`details/${house._id}`)
+              img(src=`/img/houses/${house.pictures[0]}` alt=`${house.houseName}`)
+          // /.image-content
+          .text-content
+            .top-content(style='padding:0px 20px')
+              h3
+                a(href=`details/${house._id}`)= house.houseName
+              span
+                i.fa.fa-map-marker
+                - let name = `${house.locationID.locationName} , ${house.estateId.estateName}`;
+                p(style='margin-bottom:0')= name
+            // /.top-content
+            .bottom-content.clearfix
+              .meta-bed-room
+                i.fa.fa-bed
+                |  2 Beds
+                house.numberOfBeds
+              .meta-bath-room
+                i.fa.fa-bath
+                - let shower = house.bathShower ? 'has' : 'no';
+                - let hasShower = `${shower} shower`;
+                = hasShower 
+              .meta-bed-room
+                i.glyphicon.glyphicon-home
+                - let tiles = house.tiledFloor ? 'has' : 'no';
+                - let hasTiles = `${tiles} Tiles`;
+                = hasTiles
+              .meta-bath-room
+                i.fa.fa-power-off
+                - let tokens = house.powerAndWaterBill ? 'Tokens' : 'no Tokens';
+                = tokens           
+              span.clearfix
+              - let houseprice = `KSH ${house.price}`
+              .rent-price.pull-left= houseprice
+              .share-meta.dropup.pull-right
+                ul
+                  li.dropup
+                    a.dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                      i.fa.fa-share-alt
+                    ul.dropdown-menu
+                      li
+                        a(href='#')
+                          i.fa.fa-facebook
+                      li
+                        a(href='#')
+                          i.fa.fa-twitter
+                      li
+                        a(href='#')
+                          i.fa.fa-instagram
+                      li
+                        a(href='#')
+                          i.fa.fa-google-plus
+                  li
+                    a(href='#')
+                      i.fa.fa-star-o
+     else 
+      h4(style='font-family:Popping, sans-serif ;text-align:center')
+       svg.bi.bi-search(xmlns='http://www.w3.org/2000/svg' style='margin-right:5px' width='20' height='20' fill='currentColor' viewbox='0 0 16 16')
+        path(d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z')
+       | No House Matches Your Search
+    
+  
+
+  .container
+   .row
+    .col-md-12
+      .col-md-12.col-sm-5.col-xs-12
+        a.button.nevy-button(href='/') Back Home
+
+      
+  
+  .bg-color(style='padding: 5px;')
+   .call-to-action.default-template-gradient
+    .container
+      .row.tb
+        .col-md-4.col-sm-4.tb-cell
+          .contact-left-content
+            h3 Available Payment Options
+          // /.contact-left-content
+        // /.col-md-4
+        .col-md-4.col-sm-4.tb-cell
+          .contact-right-content
+            h4
+              ul
+                li
+                  | Mpesa
+                li
+                  | Credit Card
+                li
+                  | Paypal
+  
