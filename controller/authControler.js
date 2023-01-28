@@ -7,9 +7,8 @@ function generateToken(user) {
   });
 }
 function generateCookie(res, token, req) {
-  let COOKIEDURATION = 5; // XXX 5 days
   let options = {
-    expires: new Date(Date.now() + COOKIEDURATION + 24 + 60 + 60),
+    expires: new Date(Date.now() + process.env.COOKIEDURATION + 24 + 60 + 60),
     secure: process.env.NODE_ENV == "production" ? true : false,
     secure: req.secure || req.headers["x-forwarded-proto"] === "https",
     httpOnly: true,

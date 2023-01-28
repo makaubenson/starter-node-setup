@@ -31,6 +31,18 @@ module.exports = class Email {
     }
   }
   createTransport() {
+    if (process.env.NODE_ENV == "development") {
+      return nodemailer.createTransport({
+        //TODO DEVELOPMENT EMAILS
+        host: process.env.DEV_MAIL_HOST,
+        port: process.env.DEV_MAIL_PORT,
+        auth: {
+          user: process.env.DEV_MAIL_USER,
+          pass: process.env.DEV_MAIL_PASS,
+        },
+      });
+    }
+
     return nodemailer.createTransport({
       host: process.env.EMAILHOST,
       port: process.env.EMAILPORT,

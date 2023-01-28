@@ -1,4 +1,7 @@
-let port = process.env.PORT || 2000;
+let dotenv = require("dotenv");
+dotenv.config({ path: ".env" });
+
+let port = process.env.PORT || 3000;
 
 let app = require("./app");
 
