@@ -56,12 +56,5 @@ app.use("/api/", limiter);
 app.use("/api/v1/", apiRoutes);
 app.use("/", viewRoute);
 
-app.use("*", function (req, res, next) {
-  res.status(404).json({
-    status: "404",
-    message: "Route not found",
-  });
-});
-
 app.use(errorController);
 module.exports = app;

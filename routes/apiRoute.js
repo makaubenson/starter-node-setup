@@ -6,8 +6,10 @@ let router = express.Router();
 
 router.get("/login", authController.login);
 router.get("/logout", authController.logout);
-router.get("/email", authController.login, mainController.sendEmail);
 
 router.get("/", authController.protected, mainController.getHome);
+router.get("/email", authController.protected, mainController.sendEmail);
+
+router.use("*", mainController.notFound);
 
 module.exports = router;

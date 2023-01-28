@@ -7,20 +7,20 @@ module.exports = class Email {
     if (user !== " ") {
       this.to = user.email;
       this.url = url;
-      this.from = `Node.js Starter`;
+      this.from = `starter@example.com`;
       this.firstname = user.name.split(" ")[0];
     }
   }
 
-  async send(template, subject) {
+  async send(url) {
     let html = pug.renderFile(`${__dirname}/../views/emails/verified.pug`, {
-      url: this.url,
+      url,
     });
 
     let mailOptions = {
       from: this.from,
       to: this.to,
-      subject,
+      subject: "Express.js Starter",
       html,
       text: coverter.convert(html),
     };
