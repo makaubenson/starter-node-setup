@@ -31,6 +31,7 @@ exports.login = AsyncError(async function (req, res, next) {
   let token = generateToken(user);
   generateCookie(res, token, req);
   res.locals.user = user;
+  req.user = user;
   res.status(200).json({
     status: "success",
     token,
@@ -61,7 +62,7 @@ exports.logout = function (req, res, next) {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
   });
-  res.json({
+  res.status(200).json({
     status: "success",
     message: "logged out",
   });
