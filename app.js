@@ -1,15 +1,8 @@
 //requiring express node js module
 let express = require("express");
-let userRootes = require("./routes/userRoutes");
-let ownerRoutes = require("./routes/ownerRoutes");
-let housesRoutes = require("./routes/housesRoutes");
-let estateRoutes = require("./routes/estateRoute");
-let homeRoutes = require("./routes/homeRootes");
-let bookingRoutes = require("./routes/bookingRoutes");
-let locationRoutes = require("./routes/locationRoutes");
-let viewRoutes = require("./routes/viewsRoutes");
+let mainRoutes = require("./routes/mainRoute");
 let errorController = require("./controller/errorcontroller");
-let bookingcontroller = require("./controller/bookingController");
+
 let cookieParser = require("cookie-parser");
 let path = require("path");
 const pug = require("pug");
@@ -42,8 +35,8 @@ app.use(function (req, res, next) {
 app.use(helmet());
 app.post(
   "/webhook",
-  express.raw({ type: "application/json" }),
-  bookingcontroller.receiveWebhook
+  express.raw({ type: "application/json" })
+  // TODO Stripe webhook
 );
 //limiting request json to 10kb
 app.use(express.json());
@@ -60,21 +53,14 @@ let limiter = rateLimit({
 });
 
 app.use("/api/", limiter);
-app.use("/api/v1/users", userRootes);
-app.use("/", viewRoutes);
-// app.use("/", homeRoutes);
-app.use("/api/v1/owners", ownerRoutes);
-app.use("/api/v1/houses", housesRoutes);
-app.use("/api/v1/estates", estateRoutes);
-app.use("/api/v1/bookings", bookingRoutes);
-app.use("/api/v1/locations", locationRoutes);
+app.use("/api/v1/", mainRoutes);
+app.use("/", mainRoutes);
 
 app.use("*", function (req, res, next) {
-  // res.json({
-  //   status: "failled",
-  //   message: "Route not set",
-  // });
-  res.status(200).render("_404");
+  res.status(404).json({
+    status: "404",
+    message: "Route not found",
+  });
 });
 
 app.use(errorController);

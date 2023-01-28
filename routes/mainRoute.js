@@ -1,9 +1,12 @@
 let express = require("express");
 let authController = require("./../controller/authControler");
-let viewController = require("./../controller/viewsController");
+let mainController = require("./../controller/mainController");
 
 let router = express.Router();
 
-router.use(authController.isLoggedin);
+// router.use(authController.isLoggedin);
 //pug rendering
-router.get("/", authController.isLoggedin, viewController.getHome);
+router.get("/", authController.isLoggedin, mainController.getHome);
+router.post("/forgotPassword/", authController.forgotPassword);
+
+module.exports = router;

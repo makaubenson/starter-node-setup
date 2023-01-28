@@ -1,7 +1,3 @@
-//Db setup
-
-let express = require("express");
-
 let port = process.env.PORT || 2000;
 
 let app = require("./app");
