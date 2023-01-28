@@ -1,6 +1,6 @@
 //requiring express node js module
 let express = require("express");
-let mainRoutes = require("./routes/mainRoute");
+let apiRoutes = require("./routes/apiRoute");
 let viewRoute = require("./routes/viewRoute");
 let errorController = require("./controller/errorcontroller");
 
@@ -53,7 +53,7 @@ let limiter = rateLimit({
 });
 
 app.use("/api/", limiter);
-app.use("/api/v1/", mainRoutes);
+app.use("/api/v1/", apiRoutes);
 app.use("/", viewRoute);
 
 app.use("*", function (req, res, next) {

@@ -1,4 +1,4 @@
-let AsyncError = require("./../utils/catchAsync");
+let AsyncError = require("../utils/catchAsync");
 
 exports.getHome = AsyncError(async function (req, res) {
   res.send("hi");
