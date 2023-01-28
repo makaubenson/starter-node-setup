@@ -1,6 +1,7 @@
 //requiring express node js module
 let express = require("express");
 let mainRoutes = require("./routes/mainRoute");
+let viewRoute = require("./routes/viewRoute");
 let errorController = require("./controller/errorcontroller");
 
 let cookieParser = require("cookie-parser");
@@ -53,7 +54,7 @@ let limiter = rateLimit({
 
 app.use("/api/", limiter);
 app.use("/api/v1/", mainRoutes);
-app.use("/", mainRoutes);
+app.use("/", viewRoute);
 
 app.use("*", function (req, res, next) {
   res.status(404).json({

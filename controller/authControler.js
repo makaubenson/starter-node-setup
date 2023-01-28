@@ -139,26 +139,9 @@ exports.protected = AsyncError(async function (req, res, next) {
   next();
 });
 
-//logged in user
 exports.isLoggedin = async function (req, res, next) {
-  //get the token
   try {
-    if (req.cookies.JWT) {
-      let tokenValid = await util.promisify(JWT.verify)(
-        req.cookies.JWT,
-        process.env.TOKENSECRETE
-      );
-
-      let user = await userModel.findById(tokenValid.id);
-
-      if (!user) {
-        return next();
-      }
-      if (user.haschangedPassword(tokenValid.iat)) {
-        return next();
-      }
-      res.locals.user = user;
-    }
+    // TODO Get token from coookies and perform serverside  validation
     next();
   } catch (err) {
     next();
