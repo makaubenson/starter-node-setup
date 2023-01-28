@@ -1,8 +1,16 @@
 let AsyncError = require("../utils/catchAsync");
 const Email = require("../utils/email");
 
-exports.getHome = AsyncError(async function (req, res) {
-  res.status(200).json({ status: "success", message: `API active` });
+exports.getHome = AsyncError(async function ({ method }, res) {
+  res.status(200).json({ status: "success", method, message: `API active` });
+});
+exports.postHome = AsyncError(async function ({ body, method }, res) {
+  res.status(200).json({
+    status: "success",
+    method,
+    message: `API active`,
+    body,
+  });
 });
 
 exports.notFound = AsyncError(async function (req, res) {

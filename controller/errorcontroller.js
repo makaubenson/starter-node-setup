@@ -3,21 +3,16 @@ let appError = require("./../utils/classError");
 function developmentError(res, err, next) {
   let status = err.statusCode || 500;
   let message = err.message || "An error occured in middleware";
-  if (status == 404) {
-    message = "Page Not found";
-
-    res.status(status).json({
-      status: "failed customly",
-      message: message,
-    });
-  } else {
-    res.render("_serverError");
-  }
+  res.status(status).json({
+    status: "failed customly",
+    message: message,
+  });
 }
 
 //having 4 parameters enable is to be registerd as an error handler
 module.exports = function (err, req, res, next) {
   if (process.env.NODE_ENV == "development") {
+    console.log("env", err.message);
     developmentError(res, err);
   } else if (process.env.NODE_ENV == "production") {
     //identifying mongo database errors
