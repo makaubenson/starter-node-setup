@@ -17,20 +17,8 @@ function generateCookie(res, token, req) {
 }
 
 exports.login = AsyncError(async function (req, res, next) {
-  let user = {
-    _id: "04681-7351-2176242",
-    name: "John Doe",
-    id_no: 8219261,
-    email: "john@example.com",
-    role: "user",
-    photo: "default.jpg",
-    phone: "0700000000",
-    active: true,
-  };
-  let token = generateToken(user);
+  let token = generateToken(DEFAULT_USER);
   generateCookie(res, token, req);
-  res.locals.user = user;
-  req.user = user;
   res.status(200).json({
     status: "success",
     token,
@@ -53,6 +41,8 @@ exports.protected = AsyncError(async function (req, res, next) {
     // TODO redirect to login
   }
 
+  res.locals.user = DEFAULT_USER;
+  req.user = DEFAULT_USER;
   next();
 });
 
@@ -65,4 +55,15 @@ exports.logout = function (req, res, next) {
     status: "success",
     message: "logged out",
   });
+};
+
+let DEFAULT_USER = {
+  _id: "04681-7351-2176242",
+  name: "John Doe",
+  id_no: 8219261,
+  email: "john@example.com",
+  role: "user",
+  photo: "default.jpg",
+  phone: "0700000000",
+  active: true,
 };

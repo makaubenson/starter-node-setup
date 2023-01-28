@@ -20,7 +20,7 @@ header.mobile-header-area.bg-gray-color.hidden-md.hidden-lg
                     ul
                      if user
                       li
-                       a.cd-signin(style='margin-left:10px' href='/profile'  )= user.name.split(" ")[0]  
+                       a.cd-signin(style='margin-left:10px' href='#'  )= user.name.split(" ")[0]  
                         img(style='height: 40px;border-radius: 100%; margin-left:10px' src='/img/users/default.jpg'  alt=`${user.name}`)
                       li 
                        a.logout_btn(href="#") logout 
@@ -37,7 +37,7 @@ header.mobile-header-area.bg-gray-color.hidden-md.hidden-lg
           .logo-area.tb-cell
             .site-logo
               a(href='home.html')
-                img(width='53px' src='/img/logo.png' alt='site-logo')
+                img(width='53px' src='/img/node.png' alt='site-logo')
             // /.site-logo
           // /.logo-area
         // /.mobile-header-block
@@ -53,20 +53,20 @@ header.header-area.hidden-xs.hidden-sm
         .col-md-7.col-sm-7
           .site-logo
             a(href='/')
-              img(style='width: 60px' src='/img/logo.png' alt='site-logo')
+              img(style='width: 90px' src='/img/node.png' alt='site-logo')
           // /.site-logo
         // /.col-md-8
         .col-md-5.col-sm-5
           .left-content
             ul
               li
-                a(href='/contact')
+                a(href='mailto:john@example.com')
                   i.fa.fa-phone-square
-                  | Call Us - 0710664418
+                  | Email - john@example.com
             
               if user
                li
-                a.cd-signin(style='margin-left:10px' href='/profile'  )= user.name.split(" ")[0]  
+                a.cd-signin(style='margin-left:10px' href='#'  )= user.name.split(" ")[0]  
                  img(style='height: 40px;border-radius: 100%; margin-left:10px' src='/img/users/default.jpg'  alt=`${user.name}`)
                li 
                 a.logout_btn.cd-signin( style='padding:0' href='/')
@@ -75,7 +75,7 @@ header.header-area.hidden-xs.hidden-sm
                         
               else 
                li
-                a.cd-signin(href='/login')
+                a.cd-signin(href='#')
                   i.fa.fa-address-book
                   | Login / Register
           // /.left-content
@@ -85,34 +85,7 @@ header.header-area.hidden-xs.hidden-sm
   // /.container
 // /.head-area
 // ====== Header Bottom Area ======
-.header-bottom-area.four.default-template-gradient.hidden-xs.hidden-sm.hover-shadow(style='margin: 1rem; border-radius: 15px')
-  .container
-    .header-bottom-content
-      .row
-        .col-md-9.col-sm-9
-          nav#main-nav.site-navigation.top-navigation
-            .menu-wrapper
-              .menu-content
-                ul.menu-list
-                  li
-                    hr
-                  li
-                    a(href='/') Home
-                  if user  
-                   li
-                    a(href='/profile') Profile
 
-                // /.menu-list
-              // /.menu-content
-            // /.menu-wrapper
-          // /.site-navigation
-        // /.col-md-9
-        // /.col-md-3
-      // /.row
-    // /.header-bottom-content
-  // /.header-ara
-// /.head-area
-// ====== Header Overlay Content ======
 .header-overlay-content
   // overlay-menu-item
   .overlay.overlay-hugeinc.gradient-transparent.overlay-menu-item
@@ -123,5 +96,5 @@ header.header-area.hidden-xs.hidden-sm
           a(href='/') Home
         if user  
          li
-          a(href='/profile') Profile
+          a(href='#') Profile
         
