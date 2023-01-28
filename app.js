@@ -5,7 +5,6 @@ let errorController = require("./controller/errorcontroller");
 
 let cookieParser = require("cookie-parser");
 let path = require("path");
-const pug = require("pug");
 let compression = require("compression");
 
 const rateLimit = require("express-rate-limit");
