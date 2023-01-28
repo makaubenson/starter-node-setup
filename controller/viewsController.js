@@ -10,21 +10,6 @@ let userModel = require("./../models/userModel");
 let AsyncError = require("./../utils/catchAsync");
 
 exports.getHome = AsyncError(async function (req, res) {
-  let houses = await housemodel
-    .find({ isBooked: false })
-    .limit(4)
-    .populate("estateId")
-    .populate("locationID");
-  //  .find({ premiumHouse: true })
-
-  let allLocation = await locationModel.find();
-
-  let nyawittaNumber = "10+";
-
-  let mabungoNumber = "8+";
-
-  let SilwalNumber = "15+";
-
   res
     .status(200)
     .set(
@@ -33,11 +18,11 @@ exports.getHome = AsyncError(async function (req, res) {
     )
     .render("_home", {
       title: "Unihome | Maseno ",
-      houses,
-      nyawittaNumber,
-      mabungoNumber,
-      SilwalNumber,
-      allLocation,
+      houses: [],
+      nyawittaNumber: "10+",
+      mabungoNumber: "20",
+      SilwalNumber: "50",
+      allLocation: "70",
     });
 });
 exports.getHouse = AsyncError(async function (req, res, next) {
