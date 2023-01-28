@@ -1,22 +1,22 @@
 {
-  "name": "unihomes-real-estate",
+  "name": "Node Js Starter",
   "version": "1.0.0",
-  "description": "Online booking sytems for universities",
+  "description": "Node Js Starter",
   "main": "server.js",
   "scripts": {
-    "start": " node server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aknjoroge/uniHomes.git"
+    "url": "git+git@github.com:makaubenson/starter-node-setup.git"
   },
-  "author": "Alexander Karanja",
-  "license": "ISC",
+  "author": "Benson Makau",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aknjoroge/uniHomes/issues"
+    "url": "https://github.com/makaubenson/starter-node-setup/issues"
   },
-  "homepage": "https://github.com/aknjoroge/uniHomes#readme",
+  "homepage": "https://github.com/makaubenson/starter-node-setup#readme",
   "dependencies": {
     "axios": "^0.21.4",
     "bcrypt": "^5.0.1",
